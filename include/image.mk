@@ -94,6 +94,7 @@ fs-types-$(CONFIG_TARGET_ROOTFS_JFFS2_NAND) += $(addprefix jffs2-nand-,$(NAND_BL
 fs-types-$(CONFIG_TARGET_ROOTFS_EXT4FS) += ext4
 fs-types-$(CONFIG_TARGET_ROOTFS_ISO) += iso
 fs-types-$(CONFIG_TARGET_ROOTFS_UBIFS) += ubifs
+fs-types-$(CONFIG_TARGET_ROOTFS_BTRFS) += btrfs
 fs-subtypes-$(CONFIG_TARGET_ROOTFS_JFFS2) += $(addsuffix -raw,$(addprefix jffs2-,$(JFFS2_BLOCKSIZE)))
 
 TARGET_FILESYSTEMS := $(fs-types-y)
@@ -258,6 +259,12 @@ define Image/mkfs/ext4
 		$(if $(CONFIG_TARGET_EXT4_JOURNAL),,-J) \
 		$(if $(SOURCE_DATE_EPOCH),-T $(SOURCE_DATE_EPOCH)) \
 		$@ $(call mkfs_target_dir,$(1))/
+endef
+
+define Image/mkfs/btrfs
+	dd if=/dev/zero bs=1M count=$(CONFIG_TARGET_ROOTFS_PARTSIZE) of=$@
+	$(STAGING_DIR_HOST)/bin/mkfs.btrfs -f -m single -d single \
+		-r $(call mkfs_target_dir,$(1))/ $@
 endef
 
 define Image/Manifest

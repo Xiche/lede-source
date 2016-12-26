@@ -55,6 +55,9 @@ config USES_JFFS2
 config USES_JFFS2_NAND
 	bool
 
+config USES_BTRFS
+	bool
+
 config USES_EXT4
 	bool
 

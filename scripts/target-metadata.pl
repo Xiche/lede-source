@@ -25,6 +25,7 @@ sub target_config_features(@) {
 		/^jffs2$/ and $ret .= "\tselect USES_JFFS2\n";
 		/^jffs2_nand$/ and $ret .= "\tselect USES_JFFS2_NAND\n";
 		/^ext4$/ and $ret .= "\tselect USES_EXT4\n";
+		/^btrfs$/ and $ret .= "\tselect USES_BTRFS\n";
 		/^targz$/ and $ret .= "\tselect USES_TARGZ\n";
 		/^cpiogz$/ and $ret .= "\tselect USES_CPIOGZ\n";
 		/^minor$/ and $ret .= "\tselect USES_MINOR\n";
