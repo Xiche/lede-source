@@ -223,11 +223,10 @@ endef
 TARGET_DEVICES += globalscale-mirabox
 
 define Device/turris-omnia
-  $(Device/NAND-256K)
   DEVICE_DTS := armada-385-turris-omnia
   DEVICE_TITLE := Turris Omnia
   DEVICE_PACKAGES := kmod-mmc kmod-usb3 kmod-usb-storage kmod-i2c-core \
-	kmod-ath9k kmod-ath10k ath10k-firmware-qca988x btrfs-progs
+	kmod-ath9k kmod-ath10k ath10k-firmware-qca988x kmod-fs-btrfs btrfs-progs
 endef
 TARGET_DEVICES += turris-omnia
 

@@ -674,7 +674,7 @@ static int _mvsw61xx_reset(struct switch_dev *dev, bool full)
 			u16 sts = sr16(dev, MV_PORTREG(STATUS, i));
 			u16 mode = sts & MV_PORT_STATUS_CMODE_MASK;
 
-			printk(KERN_INFO "%s: Port %d has status 0x%hx\n", __func__, i, sts);
+			printk(KERN_INFO "%s: Port %d has STATUS 0x%hx\n", __func__, i, sts);
 			/* enable SerDes if necessary */
 			if (i >= 5 && full &&
 				(mode == MV_PORT_STATUS_CMODE_100BASE_X ||
@@ -685,6 +685,7 @@ static int _mvsw61xx_reset(struct switch_dev *dev, bool full)
 			/* Enable RGMII internal delay for CPU ports */
 			if (i == state->cpu_port0 || i == state->cpu_port1) {
 				u16 reg = sr16(dev, MV_PORTREG(PHYCTL, i));
+				printk(KERN_INFO "%s: Port %d has PHYCTL 0x%hx\n", __func__, i, reg);
 				if ((reg & (MV_PHYCTL_RGMII_DELAY_RXCLK | MV_PHYCTL_RGMII_DELAY_TXCLK)) !=
 					(MV_PHYCTL_RGMII_DELAY_RXCLK | MV_PHYCTL_RGMII_DELAY_TXCLK))
 				{

@@ -153,67 +153,67 @@
 				#address-cells = <1>;
 				#size-cells = <0>;
 
-				led0 {
+				led@0 {
 					label = "user2";
 					reg = <0x0>;
 				};
 
-				led1 {
+				led@1 {
 					label = "user1";
 					reg = <0x1>;
 				};
 
-				led2 {
+				led@2 {
 					label = "pci3";
 					reg = <0x2>;
 				};
 
-				led3 {
+				led@3 {
 					label = "pci2";
 					reg = <0x3>;
 				};
 
-				led4 {
+				led@4 {
 					label = "pci1";
 					reg = <0x4>;
 				};
 
-				led5 {
+				led@5 {
 					label = "wan";
 					reg = <0x5>;
 				};
 
-				led6 {
+				led@6 {
 					label = "lan4";
 					reg = <0x6>;
 				};
 
-				led7 {
+				led@7 {
 					label = "lan3";
 					reg = <0x7>;
 				};
 
-				led8 {
+				led@8 {
 					label = "lan2";
 					reg = <0x8>;
 				};
 
-				led9 {
+				led@9 {
 					label = "lan1";
 					reg = <0x9>;
 				};
 
-				led10 {
+				led@10 {
 					label = "lan0";
 					reg = <0xa>;
 				};
 
-				led11 {
+				led@11 {
 					label = "power";
 					reg = <0xb>;
 				};
 
-				led12 {
+				led@12 {
 					label = "all";
 					reg = <0xc>;
 				};
@@ -295,7 +295,7 @@
 &mdio {
 	status = "okay";
 
-	phy1: phy@1 {
+	phy1: ethernet-phy@1 {
 		status = "okay";
 		compatible = "marvell,88E1514", "marvell,88E1510", "ethernet-phy-ieee802.3-c22";
 		reg = <1>;
