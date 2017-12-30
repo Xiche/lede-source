@@ -72,9 +72,9 @@ $(curdir)/libressl/compile := $(curdir)/pkg-config/compile
 $(curdir)/mkimage/compile += $(curdir)/libressl/compile
 $(curdir)/firmware-utils/compile += $(curdir)/libressl/compile
 $(curdir)/cmake/compile += $(curdir)/libressl/compile
-$(curdir)/lzo/compile := $(curdir)/libtool/install
-$(curdir)/util-linux/compile := $(curdir)/libtool/install
-$(curdir)/btrfs-progs/compile := $(curdir)/util-linux/install $(curdir)/lzo/install $(curdir)/zlib/install
+$(curdir)/lzo/compile := $(curdir)/libtool/compile
+$(curdir)/util-linux/compile := $(curdir)/libtool/compile
+$(curdir)/btrfs-progs/compile := $(curdir)/util-linux/compile $(curdir)/lzo/compile $(curdir)/zlib/compile
 
 ifneq ($(HOST_OS),Linux)
   tools-y += coreutils
